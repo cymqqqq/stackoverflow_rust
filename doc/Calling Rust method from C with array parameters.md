@@ -6,7 +6,7 @@ The following C and Rust code works as expected (I have omitted a lot of boilerp
 
 C:
 
-```
+```C++
 uint8_t input[] = {1,2,3};
 uint8_t output[] = {4,5,6};
 output = func(input, output);
@@ -15,7 +15,7 @@ printf("Sum: %d", output[0]);
 
 Rust:
 
-```
+```Rust
 #[no_mangle]
 pub extern fn func(input: &[u8], dst: &mut[u8]) -> u8 {
   3
@@ -26,7 +26,7 @@ This prints 3 as expected. But I'm stuck at mutating the arrays passed in as ref
 
 C:
 
-```
+```C++
 uint8_t input[] = {1,2,3};
 uint8_t output[] = {4,5,6};
 func(input, output);
@@ -35,7 +35,7 @@ printf("Sum: %d", output[0]);
 
 Rust:
 
-```
+```Rust
 #[no_mangle]
 pub extern fn func(input: &[u8], dst: &mut[u8]) {
   for i in (0..1) {
@@ -55,7 +55,7 @@ extern void func(uint8_t in[64], uint8_t output[64]);
 
 EDIT2: Updated code: C:
 
-```
+```C++
 uint8_t input[64];
 uint8_t output[64];
 for(uint8_t = 0; i < 64; i++) {
